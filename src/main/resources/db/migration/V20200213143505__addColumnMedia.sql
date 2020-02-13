@@ -1,0 +1,1 @@
+ALTER TABLE notas ADD media DECIMAL (8,2)

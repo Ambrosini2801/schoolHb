@@ -1,9 +1,13 @@
 package br.com.school.Notas;
 
+import net.sf.jasperreports.engine.JRException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.FileNotFoundException;
+
 
 @RestController
 @RequestMapping("/notas")
@@ -24,7 +28,7 @@ public class NotasRest {
         return this.NotasService.save(notasDTO);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping
     public NotasDTO find(@PathVariable("id") Long id) {
         LOGGER.info("Recebendo find by ID.. id: [{}]", id);
         return this.NotasService.findById(id);
@@ -41,5 +45,10 @@ public class NotasRest {
     public void delete(@PathVariable("id") Long id) {
         LOGGER.info("Recebendo Delete para Categoria de ID: {}", id);
         this.NotasService.delete(id);
+    }
+
+    @GetMapping("/report/{format}/{idAlunos}")
+    public String generateReport(@PathVariable("format")String format, @PathVariable("idAlunos")Long nomeAluno) throws FileNotFoundException, JRException {
+        return NotasService.jasperExport(format, nomeAluno);
     }
 }

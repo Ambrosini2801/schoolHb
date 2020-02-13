@@ -1,5 +1,8 @@
 package br.com.school.Notas;
 
+import br.com.school.Alunos.Alunos;
+import br.com.school.Disciplinas.Disciplinas;
+
 import javax.validation.constraints.NotNull;
 
 public class NotasDTO {
@@ -11,20 +14,21 @@ public class NotasDTO {
     private double segundaNota;
     @NotNull (message = "A segunda nota não deve ser nula, insira uma nota!")
     private double terceiraNota;
-    @NotNull (message = "A terceira nota não deve ser nula, insira uma nota!")
+    @NotNull (message = "A média não deve ser nula, insura uma média!")
+    private double media;
     private Long alunos;
-    @NotNull (message = "O aluno não deve ser nulo!")
     private Long disciplinas;
 
     public NotasDTO() {
 
     }
 
-    public NotasDTO(Long id, double primeiraNota, double segundaNota,  double terceiraNota, Long alunos, Long disciplinas) {
+    public NotasDTO(Long id, double primeiraNota, double segundaNota,  double terceiraNota, double media, Long alunos, Long disciplinas) {
         this.id = id;
         this.primeiraNota = primeiraNota;
         this.segundaNota = segundaNota;
         this.terceiraNota = terceiraNota;
+        this.media = media;
         this.alunos = alunos;
         this.disciplinas = disciplinas;
     }
@@ -36,6 +40,7 @@ public class NotasDTO {
                 notas.getPrimeiraNota(),
                 notas.getSegundaNota(),
                 notas.getTerceiraNota(),
+                notas.getMedia(),
                 notas.getAlunos().getId(),
                 notas.getDisciplinas().getId()
         );
@@ -48,6 +53,14 @@ public class NotasDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public void setMedia(double media) {
+        this.media = media;
     }
 
     public double getPrimeiraNota() {
@@ -97,6 +110,7 @@ public class NotasDTO {
                 ", primeiraNota=" + primeiraNota +
                 ", segundaNota=" + segundaNota +
                 ", terceiraNota=" + terceiraNota +
+                ", media=" + media +
                 ", alunos=" + alunos +
                 ", disciplinas=" + disciplinas +
                 '}';

@@ -18,6 +18,10 @@ public class Notas {
     private double segundaNota;
     @Column(name = "terceira_nota", nullable = false, length = 4)
     private double terceiraNota;
+    @Column(name = "media", nullable = false)
+    private double media;
+
+
     @ManyToOne
     @JoinColumn(name = "id_alunos", referencedColumnName = "id")
     private Alunos alunos;
@@ -29,17 +33,16 @@ public class Notas {
 
     }
 
-    public Notas(Long id, double primeiraNota, double segundaNota, double terceiraNota, Alunos alunos, Disciplinas disciplinas) {
-        this.id = id;
-        this.primeiraNota = primeiraNota;
-        this.segundaNota = segundaNota;
-        this.terceiraNota = terceiraNota;
-        this.alunos = alunos;
-        this.disciplinas = disciplinas;
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public void setMedia(double media) {
+        this.media = media;
     }
 
     public void setId(Long id) {
@@ -93,6 +96,7 @@ public class Notas {
                 ", primeiraNota=" + primeiraNota +
                 ", segundaNota=" + segundaNota +
                 ", terceiraNota=" + terceiraNota +
+                ", media=" + media +
                 ", alunos=" + alunos +
                 ", disciplinas=" + disciplinas +
                 '}';
