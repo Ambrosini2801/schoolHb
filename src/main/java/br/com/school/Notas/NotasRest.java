@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 
-
 @RestController
+@CrossOrigin(origins = "http://localhost:51650")
 @RequestMapping("/notas")
 public class NotasRest {
 
@@ -48,7 +48,7 @@ public class NotasRest {
     }
 
     @GetMapping("/report/{format}/{idAlunos}")
-    public String generateReport(@PathVariable("format")String format, @PathVariable("idAlunos")Long nomeAluno) throws FileNotFoundException, JRException {
+    public String generateReport(@PathVariable("format") String format, @PathVariable("idAlunos") Long nomeAluno) throws FileNotFoundException, JRException {
         return NotasService.jasperExport(format, nomeAluno);
     }
 }

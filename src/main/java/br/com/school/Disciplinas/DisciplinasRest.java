@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:51650")
 @RequestMapping("/disciplinas")
 public class DisciplinasRest {
     private static final Logger LOGGER = LoggerFactory.getLogger(DisciplinasRest.class);
