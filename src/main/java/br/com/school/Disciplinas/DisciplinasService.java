@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -63,5 +64,9 @@ public class DisciplinasService {
         LOGGER.info("Executando delete para usuário de ID: [{}]", id);
 
         this.iDisciplinasRepository.deleteById(id);
+    }
+
+    public List<Disciplinas> findAll() {
+        return this.iDisciplinasRepository.findAll();
     }
 }

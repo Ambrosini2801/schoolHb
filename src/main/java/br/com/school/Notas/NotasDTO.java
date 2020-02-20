@@ -1,8 +1,5 @@
 package br.com.school.Notas;
 
-import br.com.school.Alunos.Alunos;
-import br.com.school.Disciplinas.Disciplinas;
-
 import javax.validation.constraints.NotNull;
 
 public class NotasDTO {
@@ -14,7 +11,7 @@ public class NotasDTO {
     private double segundaNota;
     @NotNull (message = "A segunda nota não deve ser nula, insira uma nota!")
     private double terceiraNota;
-    @NotNull (message = "A média não deve ser nula, insura uma média!")
+    @NotNull (message = "A média não deve ser nula, insira uma média!")
     private double media;
     private Long alunos;
     private Long disciplinas;
@@ -23,8 +20,8 @@ public class NotasDTO {
 
     }
 
-    public NotasDTO(Long id, double primeiraNota, double segundaNota,  double terceiraNota, double media, Long alunos, Long disciplinas) {
-        this.id = id;
+    public NotasDTO(double primeiraNota, double segundaNota,  double terceiraNota, double media, Long alunos, Long disciplinas) {
+
         this.primeiraNota = primeiraNota;
         this.segundaNota = segundaNota;
         this.terceiraNota = terceiraNota;
@@ -36,7 +33,7 @@ public class NotasDTO {
 
     public static NotasDTO of(Notas notas) {
         return new NotasDTO(
-                notas.getId(),
+
                 notas.getPrimeiraNota(),
                 notas.getSegundaNota(),
                 notas.getTerceiraNota(),

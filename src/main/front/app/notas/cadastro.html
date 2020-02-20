@@ -1,0 +1,31 @@
+<!-- cadastro.html -->
+<div>
+    <h1>Cadastro</h1>
+    <p>Faça aqui o seu cadastro de alunos, disciplinas e notas.</p>
+
+</div>
+
+<body ng-app="app" ng-controller="NotaCtrl">
+
+
+    <br>
+    <pre><input ng-model="nome"  placeholder= "Preencha o nome do aluno." type="text" footer class="text-center"  size="70" > </input></pre>
+    <br>
+    <pre><input ng-model="data" placeholder="Preencha a data de nascimento."type="text" footer class="text-center" size="70"></input></pre>
+
+    <br><button ng-click="salvar(nome, data)"> Salvar</button></footer><br>
+
+    <br>
+    <pre><input ng-model="disciplinas" placeholder="Preencha as disciplinas." type="text" footer class="text-center" size="70"></input></pre>
+
+    <br><button ng-click="salvar(disciplinas)">Salvar</button>
+    <br>
+
+    <br>
+    <pre><input ng-model="notas" placeholder="Preencha as notas." type="text" footer class="text-center" size="70" ></input></pre>
+
+    <br><button ng-click="salvar(notas)">Salvar</button>
+
+    </footer>
+
+</body>

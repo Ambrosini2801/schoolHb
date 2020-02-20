@@ -5,8 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@CrossOrigin(origins = "http://localhost:51650")
+@CrossOrigin(origins = "*")
 @RequestMapping("/disciplinas")
 public class DisciplinasRest {
     private static final Logger LOGGER = LoggerFactory.getLogger(DisciplinasRest.class);
@@ -41,5 +43,11 @@ public class DisciplinasRest {
     public void delete(@PathVariable("id") Long id) {
         LOGGER.info("Recebendo delete para a disciplina de ID: {}", id);
 
+    }
+
+    @GetMapping
+    public List<Disciplinas> findAll() {
+        LOGGER.info("Recebendo findAll [{}]");
+        return this.disciplinasService.findAll();
     }
 }

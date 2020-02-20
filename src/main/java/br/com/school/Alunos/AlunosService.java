@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -67,5 +68,9 @@ public class AlunosService {
         LOGGER.info("Executando delete para usuário de ID: [{}]", id);
 
         this.iAlunosRepository.deleteById(id);
+    }
+
+    public List<Alunos> findAll() {
+        return this.iAlunosRepository.findAll();
     }
 }
